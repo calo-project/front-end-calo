@@ -9,6 +9,7 @@ import type {
   CallOverrides,
   ContractTransaction,
   Overrides,
+  PayableOverrides,
   PopulatedTransaction,
   Signer,
   utils,
@@ -32,6 +33,7 @@ export declare namespace CaloToken {
     id: PromiseOrValue<BigNumberish>;
     name: PromiseOrValue<string>;
     cost: PromiseOrValue<BigNumberish>;
+    tickets: PromiseOrValue<BigNumberish>;
     maxTickets: PromiseOrValue<BigNumberish>;
     date: PromiseOrValue<string>;
     time: PromiseOrValue<string>;
@@ -43,6 +45,7 @@ export declare namespace CaloToken {
     string,
     BigNumber,
     BigNumber,
+    BigNumber,
     string,
     string,
     string
@@ -50,6 +53,7 @@ export declare namespace CaloToken {
     id: BigNumber;
     name: string;
     cost: BigNumber;
+    tickets: BigNumber;
     maxTickets: BigNumber;
     date: string;
     time: string;
@@ -64,8 +68,10 @@ export interface CaloTokenInterface extends utils.Interface {
     "caloevent(uint256)": FunctionFragment;
     "getApproved(uint256)": FunctionFragment;
     "getCaloEvent(uint256)": FunctionFragment;
+    "hasBought(uint256,address)": FunctionFragment;
     "isApprovedForAll(address,address)": FunctionFragment;
-    "list(string,uint256,uint256,string,string,string)": FunctionFragment;
+    "list(string,uint256,uint256,uint256,string,string,string)": FunctionFragment;
+    "mint(uint256)": FunctionFragment;
     "name()": FunctionFragment;
     "owner()": FunctionFragment;
     "ownerOf(uint256)": FunctionFragment;
@@ -76,6 +82,7 @@ export interface CaloTokenInterface extends utils.Interface {
     "symbol()": FunctionFragment;
     "tokenURI(uint256)": FunctionFragment;
     "totalCaloEvent()": FunctionFragment;
+    "totalSupply()": FunctionFragment;
     "transferFrom(address,address,uint256)": FunctionFragment;
   };
 
@@ -86,8 +93,10 @@ export interface CaloTokenInterface extends utils.Interface {
       | "caloevent"
       | "getApproved"
       | "getCaloEvent"
+      | "hasBought"
       | "isApprovedForAll"
       | "list"
+      | "mint"
       | "name"
       | "owner"
       | "ownerOf"
@@ -98,6 +107,7 @@ export interface CaloTokenInterface extends utils.Interface {
       | "symbol"
       | "tokenURI"
       | "totalCaloEvent"
+      | "totalSupply"
       | "transferFrom"
   ): FunctionFragment;
 
@@ -122,6 +132,10 @@ export interface CaloTokenInterface extends utils.Interface {
     values: [PromiseOrValue<BigNumberish>]
   ): string;
   encodeFunctionData(
+    functionFragment: "hasBought",
+    values: [PromiseOrValue<BigNumberish>, PromiseOrValue<string>]
+  ): string;
+  encodeFunctionData(
     functionFragment: "isApprovedForAll",
     values: [PromiseOrValue<string>, PromiseOrValue<string>]
   ): string;
@@ -131,10 +145,15 @@ export interface CaloTokenInterface extends utils.Interface {
       PromiseOrValue<string>,
       PromiseOrValue<BigNumberish>,
       PromiseOrValue<BigNumberish>,
+      PromiseOrValue<BigNumberish>,
       PromiseOrValue<string>,
       PromiseOrValue<string>,
       PromiseOrValue<string>
     ]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "mint",
+    values: [PromiseOrValue<BigNumberish>]
   ): string;
   encodeFunctionData(functionFragment: "name", values?: undefined): string;
   encodeFunctionData(functionFragment: "owner", values?: undefined): string;
@@ -177,6 +196,10 @@ export interface CaloTokenInterface extends utils.Interface {
     values?: undefined
   ): string;
   encodeFunctionData(
+    functionFragment: "totalSupply",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
     functionFragment: "transferFrom",
     values: [
       PromiseOrValue<string>,
@@ -196,11 +219,13 @@ export interface CaloTokenInterface extends utils.Interface {
     functionFragment: "getCaloEvent",
     data: BytesLike
   ): Result;
+  decodeFunctionResult(functionFragment: "hasBought", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "isApprovedForAll",
     data: BytesLike
   ): Result;
   decodeFunctionResult(functionFragment: "list", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "mint", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "name", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "owner", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "ownerOf", data: BytesLike): Result;
@@ -224,6 +249,10 @@ export interface CaloTokenInterface extends utils.Interface {
   decodeFunctionResult(functionFragment: "tokenURI", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "totalCaloEvent",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "totalSupply",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
@@ -320,10 +349,20 @@ export interface CaloToken extends BaseContract {
       arg0: PromiseOrValue<BigNumberish>,
       overrides?: CallOverrides
     ): Promise<
-      [BigNumber, string, BigNumber, BigNumber, string, string, string] & {
+      [
+        BigNumber,
+        string,
+        BigNumber,
+        BigNumber,
+        BigNumber,
+        string,
+        string,
+        string
+      ] & {
         id: BigNumber;
         name: string;
         cost: BigNumber;
+        tickets: BigNumber;
         maxTickets: BigNumber;
         date: string;
         time: string;
@@ -341,6 +380,12 @@ export interface CaloToken extends BaseContract {
       overrides?: CallOverrides
     ): Promise<[CaloToken.CaloEventStructOutput]>;
 
+    hasBought(
+      arg0: PromiseOrValue<BigNumberish>,
+      arg1: PromiseOrValue<string>,
+      overrides?: CallOverrides
+    ): Promise<[boolean]>;
+
     isApprovedForAll(
       owner: PromiseOrValue<string>,
       operator: PromiseOrValue<string>,
@@ -350,11 +395,17 @@ export interface CaloToken extends BaseContract {
     list(
       _name: PromiseOrValue<string>,
       _cost: PromiseOrValue<BigNumberish>,
+      _tickets: PromiseOrValue<BigNumberish>,
       _maxTickets: PromiseOrValue<BigNumberish>,
       _date: PromiseOrValue<string>,
       _time: PromiseOrValue<string>,
       _location: PromiseOrValue<string>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
+    ): Promise<ContractTransaction>;
+
+    mint(
+      _id: PromiseOrValue<BigNumberish>,
+      overrides?: PayableOverrides & { from?: PromiseOrValue<string> }
     ): Promise<ContractTransaction>;
 
     name(overrides?: CallOverrides): Promise<[string]>;
@@ -401,6 +452,8 @@ export interface CaloToken extends BaseContract {
 
     totalCaloEvent(overrides?: CallOverrides): Promise<[BigNumber]>;
 
+    totalSupply(overrides?: CallOverrides): Promise<[BigNumber]>;
+
     transferFrom(
       from: PromiseOrValue<string>,
       to: PromiseOrValue<string>,
@@ -424,10 +477,20 @@ export interface CaloToken extends BaseContract {
     arg0: PromiseOrValue<BigNumberish>,
     overrides?: CallOverrides
   ): Promise<
-    [BigNumber, string, BigNumber, BigNumber, string, string, string] & {
+    [
+      BigNumber,
+      string,
+      BigNumber,
+      BigNumber,
+      BigNumber,
+      string,
+      string,
+      string
+    ] & {
       id: BigNumber;
       name: string;
       cost: BigNumber;
+      tickets: BigNumber;
       maxTickets: BigNumber;
       date: string;
       time: string;
@@ -445,6 +508,12 @@ export interface CaloToken extends BaseContract {
     overrides?: CallOverrides
   ): Promise<CaloToken.CaloEventStructOutput>;
 
+  hasBought(
+    arg0: PromiseOrValue<BigNumberish>,
+    arg1: PromiseOrValue<string>,
+    overrides?: CallOverrides
+  ): Promise<boolean>;
+
   isApprovedForAll(
     owner: PromiseOrValue<string>,
     operator: PromiseOrValue<string>,
@@ -454,11 +523,17 @@ export interface CaloToken extends BaseContract {
   list(
     _name: PromiseOrValue<string>,
     _cost: PromiseOrValue<BigNumberish>,
+    _tickets: PromiseOrValue<BigNumberish>,
     _maxTickets: PromiseOrValue<BigNumberish>,
     _date: PromiseOrValue<string>,
     _time: PromiseOrValue<string>,
     _location: PromiseOrValue<string>,
     overrides?: Overrides & { from?: PromiseOrValue<string> }
+  ): Promise<ContractTransaction>;
+
+  mint(
+    _id: PromiseOrValue<BigNumberish>,
+    overrides?: PayableOverrides & { from?: PromiseOrValue<string> }
   ): Promise<ContractTransaction>;
 
   name(overrides?: CallOverrides): Promise<string>;
@@ -505,6 +580,8 @@ export interface CaloToken extends BaseContract {
 
   totalCaloEvent(overrides?: CallOverrides): Promise<BigNumber>;
 
+  totalSupply(overrides?: CallOverrides): Promise<BigNumber>;
+
   transferFrom(
     from: PromiseOrValue<string>,
     to: PromiseOrValue<string>,
@@ -528,10 +605,20 @@ export interface CaloToken extends BaseContract {
       arg0: PromiseOrValue<BigNumberish>,
       overrides?: CallOverrides
     ): Promise<
-      [BigNumber, string, BigNumber, BigNumber, string, string, string] & {
+      [
+        BigNumber,
+        string,
+        BigNumber,
+        BigNumber,
+        BigNumber,
+        string,
+        string,
+        string
+      ] & {
         id: BigNumber;
         name: string;
         cost: BigNumber;
+        tickets: BigNumber;
         maxTickets: BigNumber;
         date: string;
         time: string;
@@ -549,6 +636,12 @@ export interface CaloToken extends BaseContract {
       overrides?: CallOverrides
     ): Promise<CaloToken.CaloEventStructOutput>;
 
+    hasBought(
+      arg0: PromiseOrValue<BigNumberish>,
+      arg1: PromiseOrValue<string>,
+      overrides?: CallOverrides
+    ): Promise<boolean>;
+
     isApprovedForAll(
       owner: PromiseOrValue<string>,
       operator: PromiseOrValue<string>,
@@ -558,10 +651,16 @@ export interface CaloToken extends BaseContract {
     list(
       _name: PromiseOrValue<string>,
       _cost: PromiseOrValue<BigNumberish>,
+      _tickets: PromiseOrValue<BigNumberish>,
       _maxTickets: PromiseOrValue<BigNumberish>,
       _date: PromiseOrValue<string>,
       _time: PromiseOrValue<string>,
       _location: PromiseOrValue<string>,
+      overrides?: CallOverrides
+    ): Promise<void>;
+
+    mint(
+      _id: PromiseOrValue<BigNumberish>,
       overrides?: CallOverrides
     ): Promise<void>;
 
@@ -608,6 +707,8 @@ export interface CaloToken extends BaseContract {
     ): Promise<string>;
 
     totalCaloEvent(overrides?: CallOverrides): Promise<BigNumber>;
+
+    totalSupply(overrides?: CallOverrides): Promise<BigNumber>;
 
     transferFrom(
       from: PromiseOrValue<string>,
@@ -679,6 +780,12 @@ export interface CaloToken extends BaseContract {
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
+    hasBought(
+      arg0: PromiseOrValue<BigNumberish>,
+      arg1: PromiseOrValue<string>,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
     isApprovedForAll(
       owner: PromiseOrValue<string>,
       operator: PromiseOrValue<string>,
@@ -688,11 +795,17 @@ export interface CaloToken extends BaseContract {
     list(
       _name: PromiseOrValue<string>,
       _cost: PromiseOrValue<BigNumberish>,
+      _tickets: PromiseOrValue<BigNumberish>,
       _maxTickets: PromiseOrValue<BigNumberish>,
       _date: PromiseOrValue<string>,
       _time: PromiseOrValue<string>,
       _location: PromiseOrValue<string>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
+    ): Promise<BigNumber>;
+
+    mint(
+      _id: PromiseOrValue<BigNumberish>,
+      overrides?: PayableOverrides & { from?: PromiseOrValue<string> }
     ): Promise<BigNumber>;
 
     name(overrides?: CallOverrides): Promise<BigNumber>;
@@ -739,6 +852,8 @@ export interface CaloToken extends BaseContract {
 
     totalCaloEvent(overrides?: CallOverrides): Promise<BigNumber>;
 
+    totalSupply(overrides?: CallOverrides): Promise<BigNumber>;
+
     transferFrom(
       from: PromiseOrValue<string>,
       to: PromiseOrValue<string>,
@@ -774,6 +889,12 @@ export interface CaloToken extends BaseContract {
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
+    hasBought(
+      arg0: PromiseOrValue<BigNumberish>,
+      arg1: PromiseOrValue<string>,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
     isApprovedForAll(
       owner: PromiseOrValue<string>,
       operator: PromiseOrValue<string>,
@@ -783,11 +904,17 @@ export interface CaloToken extends BaseContract {
     list(
       _name: PromiseOrValue<string>,
       _cost: PromiseOrValue<BigNumberish>,
+      _tickets: PromiseOrValue<BigNumberish>,
       _maxTickets: PromiseOrValue<BigNumberish>,
       _date: PromiseOrValue<string>,
       _time: PromiseOrValue<string>,
       _location: PromiseOrValue<string>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
+    ): Promise<PopulatedTransaction>;
+
+    mint(
+      _id: PromiseOrValue<BigNumberish>,
+      overrides?: PayableOverrides & { from?: PromiseOrValue<string> }
     ): Promise<PopulatedTransaction>;
 
     name(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -833,6 +960,8 @@ export interface CaloToken extends BaseContract {
     ): Promise<PopulatedTransaction>;
 
     totalCaloEvent(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+
+    totalSupply(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     transferFrom(
       from: PromiseOrValue<string>,
