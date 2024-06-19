@@ -81,7 +81,7 @@ describe(NAME, () => {
 
     it(`Update total ticket to ${totalSupply}`, async () => {
         const caloevent = await caloToken.getCaloEvent(1);
-        expect(caloevent.maxTickets).to.be.equal(totalSupply);
+        expect(caloevent.tickets).to.be.equal(totalSupply);
     });
 
     it(`Update buying status`, async () => {
