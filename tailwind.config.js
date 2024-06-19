@@ -6,5 +6,15 @@ export default {
   theme: {
     extend: {},
   },
-  plugins: [],
+  plugins: [require('daisyui'),],
+  daisyui: {
+    themes: ["light", "dark", "cupcake"],
+    base: true,
+    styled: true,
+    utils: true,
+    prefix: "",
+    logs: true,
+    themeRoot: ":root",
+  },
+
 }
