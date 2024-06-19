@@ -93,6 +93,71 @@ describe(NAME, () => {
         const balance = await ethers.provider.getBalance(caloToken.address);
         expect(balance).to.be.equal(AMOUNT);
     });
-    
+  });
+
+  describe("Cancel", () => {
+    const ID = 1;
+    const AMOUNT = ethers.utils.parseUnits("1", "ether");
+
+    beforeEach(async () => {
+      const transaction = await caloToken.connect(buyer).mint(ID, { value: AMOUNT });
+      await transaction.wait();
+    });
+  
+    it("Updates total tickets", async () => {
+      await caloToken.connect(buyer).cancel(ID);
+      const caloevent = await caloToken.getCaloEvent(ID);
+      expect(caloevent.tickets).to.be.equal(EVENT_TICKETS);
+    });
+  
+    it("Updates buying status", async () => {
+      await caloToken.connect(buyer).cancel(ID);
+      const status = await caloToken.hasBought(ID, buyer.address);
+      expect(status).to.be.equal(false);
+    });
+  
+    it("Issues refund to buyer", async () => {
+      const initialBalance = await ethers.provider.getBalance(buyer.address);
+  
+      const transaction = await caloToken.connect(buyer).cancel(ID);
+      const receipt = await transaction.wait();
+      const gasUsed = receipt.gasUsed.mul(receipt.effectiveGasPrice);
+  
+      const finalBalance = await ethers.provider.getBalance(buyer.address);
+      expect(finalBalance).to.be.closeTo(initialBalance.add(AMOUNT).sub(gasUsed), ethers.utils.parseUnits("0.001", "ether"));
+    });
+  
+    it("Updates contract balance", async () => {
+      await caloToken.connect(buyer).cancel(ID);
+      const balance = await ethers.provider.getBalance(caloToken.address);
+      expect(balance).to.be.equal(0);
+    });
+  });
+
+  describe("Withdraw", () => {
+    const ID = 1
+    const SEAT = 50
+    const AMOUNT = ethers.utils.parseUnits("1", 'ether')
+    let balanceBefore
+
+    beforeEach(async () => {
+      balanceBefore = await ethers.provider.getBalance(deployer.address)
+
+      let transaction = await caloToken.connect(buyer).mint(ID, { value: AMOUNT })
+      await transaction.wait()
+
+      transaction = await caloToken.connect(deployer).withdraw()
+      await transaction.wait()
+    })
+
+    it('Updates the owner balance', async () => {
+      const balanceAfter = await ethers.provider.getBalance(deployer.address)
+      expect(balanceAfter).to.be.greaterThan(balanceBefore)
+    })
+
+    it('Updates the contract balance', async () => {
+      const balance = await ethers.provider.getBalance(caloToken.address)
+      expect(balance).to.equal(0)
+    })
   });
 });

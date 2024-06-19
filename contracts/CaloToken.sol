@@ -23,7 +23,7 @@ contract CaloToken is ERC721 {
     mapping(uint256 => mapping(address => bool)) public hasBought;
 
     modifier onlyOwner(){
-        require(msg.sender == owner);
+        require(msg.sender == owner, "Only owner can call this function");
         _;
     }
 
@@ -57,10 +57,10 @@ contract CaloToken is ERC721 {
     }
 
     function mint(uint256 _id) public payable {
-        require(_id != 0);
-        require(_id <= totalCaloEvent);
-
-        require(msg.value >= caloevent[_id].cost);
+        require(_id != 0, "Invalid event ID");
+        require(_id <= totalCaloEvent, "Event does not exist");
+        require(msg.value >= caloevent[_id].cost, "Insufficient payment");
+        require(caloevent[_id].tickets > 0, "No tickets available");
 
         caloevent[_id].tickets -= 1;
         hasBought[_id][msg.sender] = true;
@@ -68,7 +68,30 @@ contract CaloToken is ERC721 {
         _safeMint(msg.sender, totalSupply);
     }
 
+    function cancel(uint256 _id) public {
+        require(_id != 0, "Invalid event ID");
+        require(_id <= totalCaloEvent, "Event does not exist");
+        require(hasBought[_id][msg.sender], "You have not bought a ticket for this event");
+
+        caloevent[_id].tickets += 1;
+        hasBought[_id][msg.sender] = false;
+
+        for (uint256 i = 1; i <= totalSupply; i++) {
+            if (ownerOf(i) == msg.sender) {
+                _burn(i);
+                break;
+            }
+        }
+
+        payable(msg.sender).transfer(caloevent[_id].cost);
+    }
+
     function getCaloEvent(uint256 _id) public view returns (CaloEvent memory) {
         return caloevent[_id];
+    }
+
+    function withdraw() public onlyOwner {
+        (bool success, ) = owner.call{value: address(this).balance}("");
+        require(success);
     }
 }
