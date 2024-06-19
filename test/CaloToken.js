@@ -1,5 +1,6 @@
-const { expect } = require("chai");
-const { ethers } = require("hardhat");
+import { expect } from "chai";
+import pkg from 'hardhat';
+const { ethers } = pkg;
 
 const NAME = "CaloToken";
 const SYMBOL = "CALO";
