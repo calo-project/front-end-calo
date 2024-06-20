@@ -10,6 +10,9 @@ export default function Test() {
     const [caloToken, setCaloToken] = useState(null);
     const [events, setCaloEvents] = useState([]);
 
+    const [event, setEvent] = useState({});
+    const [toggle, setToggle] = useState(false);
+
     const fetchAccounts = async () => {
         try {
             if (!window.ethereum) {
@@ -71,7 +74,11 @@ export default function Test() {
         <div>
             <h1>Test</h1>
             {account && <p>{account.slice(0, 6) + '...' + account.slice(-4)}</p>}
-            {/* Add more UI components here if needed */}
+            <div>
+                {events.map((events, index) => (
+                    <p key={index}>{events.name}</p>
+                ))}
+            </div>
         </div>
     );
 }

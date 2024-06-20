@@ -57,10 +57,10 @@ contract CaloToken is ERC721 {
     }
 
     function mint(uint256 _id) public payable {
-        require(_id != 0, "Invalid event ID");
-        require(_id <= totalCaloEvent, "Event does not exist");
-        require(msg.value >= caloevent[_id].cost, "Insufficient payment");
-        require(caloevent[_id].tickets > 0, "No tickets available");
+        require(_id != 0, "Event ID Salah");
+        require(_id <= totalCaloEvent, "Event tidak ada");
+        require(msg.value >= caloevent[_id].cost, "Pembayaran tidak mencukupi");
+        require(caloevent[_id].tickets > 0, "Tiket sudah habis");
 
         caloevent[_id].tickets -= 1;
         hasBought[_id][msg.sender] = true;
@@ -69,9 +69,9 @@ contract CaloToken is ERC721 {
     }
 
     function cancel(uint256 _id) public {
-        require(_id != 0, "Invalid event ID");
-        require(_id <= totalCaloEvent, "Event does not exist");
-        require(hasBought[_id][msg.sender], "You have not bought a ticket for this event");
+        require(_id != 0, "Event ID Salah");
+        require(_id <= totalCaloEvent, "Event tidak ada");
+        require(hasBought[_id][msg.sender], "Anda belum membeli tiket untuk acara ini");
 
         caloevent[_id].tickets += 1;
         hasBought[_id][msg.sender] = false;
