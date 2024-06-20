@@ -15,7 +15,7 @@ async function main() {
 
   console.log(`Deployed Calo Token Contract at: ${calotoken.address}\n`)
 
-  const occasions = [
+  const events = [
     {
       name: "UFC Miami",
       cost: tokens(3),
@@ -65,18 +65,18 @@ async function main() {
 
   for (var i = 0; i < 5; i++) {
     const transaction = await calotoken.connect(deployer).list(
-      occasions[i].name,
-      occasions[i].cost,
-      occasions[i].tickets,
-      occasions[i].maxTickets,
-      occasions[i].date,
-      occasions[i].time,
-      occasions[i].location,
+      events[i].name,
+      events[i].cost,
+      events[i].tickets,
+      events[i].maxTickets,
+      events[i].date,
+      events[i].time,
+      events[i].location,
     )
 
     await transaction.wait()
 
-    console.log(`Listed Event ${i + 1}: ${occasions[i].name}`)
+    console.log(`Listed Event ${i + 1}: ${events[i].name}`)
   }
 }
 
