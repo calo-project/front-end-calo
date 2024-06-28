@@ -37,7 +37,7 @@ export const useBlockchain = () => {
                 console.log(caloToken);
 
                 if (typeof caloToken.totalCaloEvent !== 'function') {
-                    console.error("totalCaloEvent function not found in the contract ABI");
+                    console.error("totalCaloEvent bukan function dari ABI");
                     return;
                 }
 
@@ -59,7 +59,7 @@ export const useBlockchain = () => {
                     setAccount(account);
                 });
             } catch (error) {
-                console.error("An error occurred:", error);
+                console.error("Terjadi kesalahan:", error);
             }
         };
 
