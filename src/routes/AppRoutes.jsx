@@ -1,9 +1,19 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import React, { lazy, useEffect } from 'react'
+import { Navigate, BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import checkAuth from '../app/auth.js';
+import initializeApp from '../app/init.js';
+
 import Home from "../pages/Home";
 import About from "../pages/About";
 import Partner from "../pages/Partner";
 import Test from "../pages/test/Test";
+
+import Layout from "../containers/Layout.jsx";
+import Login from "../pages/Login.jsx";
+
+initializeApp();
+
+const token = checkAuth()
 
 const AppRoutes = () => {
   return (
@@ -13,6 +23,12 @@ const AppRoutes = () => {
         <Route path="/about" element={<About />} />
         <Route path="/partner" element={<Partner />} />
         <Route path="/test/home" element={<Test />} />
+        <Route path="/app/*" element={<Layout />} />
+
+        <Route path="/login" element={<Login />} />
+
+
+        <Route path="*" element={<Navigate to={token ? "/app/welcome" : "/login"} replace />}/>
       </Routes>
     </Router>
   );
