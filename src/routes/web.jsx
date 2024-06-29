@@ -36,19 +36,23 @@ const routes = [
     },
     {
         path: '/beli/*/checkout',
-        component: BuyPage,
+        component: CheckoutPage,
     },
     {
         path: '/beli/*/checkout/status/*',
-        component: BuyPage,
+        component: BuyStatusPage,
     },
     {
         path: '/faq',
         component: FaqPage,
     },
     {
-        path: '/penyelenggara-event/*',
+        path: '/penyelenggara-event/',
         component: OrganizerPage,
+    },
+    {
+        path: '/penyelenggara-event/*',
+        component: DetailOrganizerPage,
     },
     {
         path: '/kontak-kami',
@@ -59,15 +63,11 @@ const routes = [
         component: PrivacyPolicyPage,
     },
     {
-        path: '/kebijakan-privasi',
-        component: PrivacyPolicyPage,
-    },
-    {
         path: '/cara-beli',
-        component: TutorialBuyPage,
+        component: BuyTutorialPage,
     },
     {
         path: '/mekanisme-blockchain',
-        component: BlockchainMekanismPage,
+        component: BlockchainMechanismPage,
     },
 ]
