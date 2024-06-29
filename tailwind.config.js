@@ -1,13 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       animation: {
         marquee: "marquee var(--duration) linear infinite",
         "marquee-vertical": "marquee-vertical var(--duration) linear infinite",
+        "border-beam": "border-beam calc(var(--duration)*1s) infinite linear",
+        orbit: "orbit calc(var(--duration)*1s) linear infinite",
       },
       keyframes: {
         marquee: {
@@ -18,18 +18,33 @@ export default {
           from: { transform: "translateY(0)" },
           to: { transform: "translateY(calc(-100% - var(--gap)))" },
         },
+        "border-beam": {
+          "100%": {
+            "offset-distance": "100%",
+          },
+        },
+        orbit: {
+          "0%": {
+            transform:
+              "rotate(0deg) translateY(calc(var(--radius) * 1px)) rotate(0deg)",
+          },
+          "100%": {
+            transform:
+              "rotate(360deg) translateY(calc(var(--radius) * 1px)) rotate(-360deg)",
+          },
+        },
       },
     },
   },
-  plugins: [require('daisyui'),],
+  plugins: [require("daisyui")],
   daisyui: {
     themes: [
       {
         calo: {
-          "primary": "#3E0ED9",
-          "secondary": "#201E13",
-          "accent": "#37cdbe",
-          "neutral": "#3d4451",
+          primary: "#3E0ED9",
+          secondary: "#201E13",
+          accent: "#37cdbe",
+          neutral: "#3d4451",
           "base-100": "#130C2B",
         },
       },
@@ -73,5 +88,4 @@ export default {
     logs: true,
     themeRoot: ":root",
   },
-
-}
+};

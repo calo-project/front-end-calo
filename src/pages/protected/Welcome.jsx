@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import { setPageTitle } from '../../features/common/headerSlice'
+import { setPageTitle } from '../../features/common/headerSlice.jsx'
 import {Link} from 'react-router-dom'
 import TemplatePointers from '../../features/user/components/TemplatePointers.jsx'
 

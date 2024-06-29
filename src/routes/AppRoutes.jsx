@@ -6,7 +6,6 @@ import initializeApp from '../app/init.js';
 import Home from "../pages/Home";
 import About from "../pages/About";
 import Partner from "../pages/Partner";
-import Test from "../pages/test/Test";
 
 import Layout from "../containers/Layout.jsx";
 import Login from "../pages/Login.jsx";
@@ -22,13 +21,11 @@ const AppRoutes = () => {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/partner" element={<Partner />} />
-        <Route path="/test/home" element={<Test />} />
         <Route path="/app/*" element={<Layout />} />
 
         <Route path="/login" element={<Login />} />
 
-
-        <Route path="*" element={<Navigate to={token ? "/app/welcome" : "/"} replace />}/>
+        <Route path="*" element={<Navigate to={token ? "/" : "/"} replace />}/>
       </Routes>
     </Router>
   );
