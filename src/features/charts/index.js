@@ -1,10 +1,10 @@
-import LineChart from './components/LineChart'
-import BarChart from './components/BarChart'
-import DoughnutChart from './components/DoughnutChart'
-import PieChart from './components/PieChart'
-import ScatterChart from './components/ScatterChart'
-import StackBarChart from './components/StackBarChart'
-import Datepicker from "react-tailwindcss-datepicker"; 
+import LineChart from './components/LineChart.jsx'
+import BarChart from './components/BarChart.jsx'
+import DoughnutChart from './components/DoughnutChart.jsx'
+import PieChart from './components/PieChart.jsx'
+import ScatterChart from './components/ScatterChart.jsx'
+import StackBarChart from './components/StackBarChart.jsx'
+import Datepicker from "react-tailwindcss-datepicker";
 import { useState } from 'react'
 
 

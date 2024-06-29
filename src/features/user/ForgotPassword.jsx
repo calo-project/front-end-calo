@@ -1,7 +1,7 @@
 import {useState, useRef} from 'react'
 import {Link} from 'react-router-dom'
-import LandingIntro from './LandingIntro'
-import ErrorText from  '../../components/Typography/ErrorText'
+import LandingIntro from './LandingIntro.jsx'
+import ErrorText from  '../../components/Typography/ErrorText.jsx'
 import InputText from '../../components/Input/InputText.jsx'
 import CheckCircleIcon  from '@heroicons/react/24/solid/CheckCircleIcon'
 
