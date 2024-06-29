@@ -10,22 +10,39 @@ import Partner from "../pages/Partner";
 import Layout from "../containers/Layout.jsx";
 import Login from "../pages/Login.jsx";
 
+import WebRoutes from './WebRoutes';
+import UserLayout from '../pages/web/user/containers/UserLayout.jsx';
+
+const HomePage = lazy(() => import('../pages/web/user/HomePage.jsx'));
+const AboutPage = lazy(() => import('../pages/web/user/features/about/AboutPage.jsx'));
+
 initializeApp();
 
 const token = checkAuth();
+const role = "Guest";
 
 const AppRoutes = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/partner" element={<Partner />} />
+        {/* <Route path="*" element={<WebRoutes />} /> */}
+        {/* <Route path="/" element={<Home />} /> */}
+        {/* <Route path="/about" element={<About />} /> */}
         <Route path="/app/*" element={<Layout />} />
+        {role === 'Guest' && (
+          <Route path="/" element={<UserLayout />}>
+            <Route index element={<Home />} />
+            <Route path="/about" element={<HomePage />} />
+            <Route path="/partner" element={<AboutPage />} />
+          </Route>
+        )}
+
 
         <Route path="/login" element={<Login />} />
 
         <Route path="*" element={<Navigate to={token ? "/" : "/"} replace />}/>
+
+        
       </Routes>
     </Router>
   );
