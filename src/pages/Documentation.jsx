@@ -1,11 +1,11 @@
 import {Link} from 'react-router-dom'
-import FeaturesNav from '../features/documentation/components/FeaturesNav'
-import GettingStartedContent from '../features/documentation/components/GettingStartedContent'
-import GettingStartedNav from '../features/documentation/components/GettingStartedNav'
+import FeaturesNav from '../features/documentation/components/FeaturesNav.jsx'
+import GettingStartedContent from '../features/documentation/components/GettingStartedContent.jsx'
+import GettingStartedNav from '../features/documentation/components/GettingStartedNav.jsx'
 import Title from '../components/Typography/Title'
-import DocComponentsNav from '../features/documentation/components/DocComponentsNav'
-import FeaturesContent from '../features/documentation/components/FeaturesContent'
-import DocComponentsContent from '../features/documentation/components/DocComponentsContent'
+import DocComponentsNav from '../features/documentation/components/DocComponentsNav.jsx'
+import FeaturesContent from '../features/documentation/components/FeaturesContent.jsx'
+import DocComponentsContent from '../features/documentation/components/DocComponentsContent.jsx'
 
 function Documentation(){
     return(

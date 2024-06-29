@@ -13,7 +13,7 @@ import Login from "../pages/Login.jsx";
 
 initializeApp();
 
-const token = checkAuth()
+const token = checkAuth();
 
 const AppRoutes = () => {
   return (
@@ -28,7 +28,7 @@ const AppRoutes = () => {
         <Route path="/login" element={<Login />} />
 
 
-        <Route path="*" element={<Navigate to={token ? "/app/welcome" : "/login"} replace />}/>
+        <Route path="*" element={<Navigate to={token ? "/app/welcome" : "/"} replace />}/>
       </Routes>
     </Router>
   );

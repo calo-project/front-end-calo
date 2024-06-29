@@ -4,7 +4,7 @@ import BellIcon  from '@heroicons/react/24/outline/BellIcon'
 import Bars3Icon  from '@heroicons/react/24/outline/Bars3Icon'
 import MoonIcon from '@heroicons/react/24/outline/MoonIcon'
 import SunIcon from '@heroicons/react/24/outline/SunIcon'
-import { openRightDrawer } from '../features/common/rightDrawerSlice';
+import { openRightDrawer } from '../features/common/rightDrawerSlice.jsx';
 import { RIGHT_DRAWER_TYPES } from '../utils/globalConstantUtil';
 
 import { NavLink,  Routes, Link , useLocation} from 'react-router-dom'
@@ -17,7 +17,6 @@ function Header(){
     const [currentTheme, setCurrentTheme] = useState(localStorage.getItem("theme"))
 
     useEffect(() => {
-        themeChange(false)
         if(currentTheme === null){
             if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ) {
                 setCurrentTheme("dark")

@@ -6,9 +6,7 @@ import Footer from './components/common/layouts/Footer.jsx';
 export default function App() {
   return (
     <div className="App max-w-7xl mx-auto justify-center">
-      <Navbar/>
       <AppRoutes />
-      <Footer/>
     </div>
   );
 }

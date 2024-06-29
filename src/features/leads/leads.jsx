@@ -1,12 +1,12 @@
 import moment from "moment"
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import TitleCard from "../../components/Cards/TitleCard"
-import { openModal } from "../common/modalSlice"
-import { deleteLead, getLeadsContent } from "./leadSlice"
-import { CONFIRMATION_MODAL_CLOSE_TYPES, MODAL_BODY_TYPES } from '../../utils/globalConstantUtil'
+import TitleCard from "../../components/Cards/TitleCard.jsx"
+import { openModal } from "../common/modalSlice.jsx"
+import { deleteLead, getLeadsContent } from "./leadSlice.jsx"
+import { CONFIRMATION_MODAL_CLOSE_TYPES, MODAL_BODY_TYPES } from '../../utils/globalConstantUtil.js'
 import TrashIcon from '@heroicons/react/24/outline/TrashIcon'
-import { showNotification } from '../common/headerSlice'
+import { showNotification } from '../common/headerSlice.jsx'
 
 const TopSideButtons = () => {
 

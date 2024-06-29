@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react"
 import { useDispatch } from "react-redux"
-import TitleCard from "../../components/Cards/TitleCard"
-import { setPageTitle, showNotification } from "../common/headerSlice"
-import DocComponentsNav from "./components/DocComponentsNav"
-import ReadMe from "./components/GettingStartedContent"
-import DocComponentsContent from "./components/DocComponentsContent"
-import FeaturesNav from "./components/FeaturesNav"
-import FeaturesContent from "./components/FeaturesContent"
+import TitleCard from "../../components/Cards/TitleCard.jsx"
+import { setPageTitle, showNotification } from "../common/headerSlice.jsx"
+import DocComponentsNav from "./components/DocComponentsNav.jsx"
+import ReadMe from "./components/GettingStartedContent.jsx"
+import DocComponentsContent from "./components/DocComponentsContent.jsx"
+import FeaturesNav from "./components/FeaturesNav.jsx"
+import FeaturesContent from "./components/FeaturesContent.jsx"
 
 
 

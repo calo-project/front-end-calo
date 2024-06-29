@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import { setPageTitle } from '../../features/common/headerSlice'
-import Transactions from '../../features/transactions'
+import { setPageTitle } from '../../features/common/headerSlice.jsx'
+import Transactions from '../../features/transactions/index.jsx'
 
 function InternalPage(){
     const dispatch = useDispatch()

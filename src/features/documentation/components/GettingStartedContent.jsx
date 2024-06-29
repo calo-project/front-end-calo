@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import Subtitle from '../../../components/Typography/Subtitle'
-import { setPageTitle } from '../../common/headerSlice'
+import Subtitle from '../../../components/Typography/Subtitle.jsx'
+import { setPageTitle } from '../../common/headerSlice.jsx'
 
 function GettingStartedContent(){
 

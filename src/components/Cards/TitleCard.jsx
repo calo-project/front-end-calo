@@ -1,4 +1,4 @@
-import Subtitle from "../Typography/Subtitle"
+import Subtitle from "../Typography/Subtitle.jsx"
 
   
   function TitleCard({title, children, topMargin, TopSideButtons}){

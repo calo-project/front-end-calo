@@ -1,13 +1,13 @@
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import InputText from '../../../components/Input/InputText.jsx'
-import Title from '../../../components/Typography/Title'
-import Subtitle from '../../../components/Typography/Subtitle'
-import ErrorText from '../../../components/Typography/ErrorText'
-import HelperText from '../../../components/Typography/HelperText'
+import Title from '../../../components/Typography/Title.jsx'
+import Subtitle from '../../../components/Typography/Subtitle.jsx'
+import ErrorText from '../../../components/Typography/ErrorText.jsx'
+import HelperText from '../../../components/Typography/HelperText.jsx'
 
-import { setPageTitle, showNotification } from '../../common/headerSlice'
-import TitleCard from '../../../components/Cards/TitleCard'
+import { setPageTitle, showNotification } from '../../common/headerSlice.jsx'
+import TitleCard from '../../../components/Cards/TitleCard.jsx'
 
 function DocComponentsContent(){
 
