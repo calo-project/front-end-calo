@@ -2,7 +2,8 @@ import { lazy } from 'react';
 import React from "react";
 
 const HomePage = lazy(() => import('../pages/web/user/HomePage.jsx'));
-const AboutPage = lazy(() => import('../pages/web/user/features/about/AboutPage.jsx'));
+import AboutPage from '../pages/web/user/features/about/AboutPage.jsx';
+import BecomePartnerPage from '../pages/web/user/features/becomepartner/BecomePartnerPage.jsx';
 
 
 const routes = [
@@ -14,10 +15,10 @@ const routes = [
         path: '/tentang',
         component: AboutPage,
     },
-    // {
-    //     path: '/jadi-patner',
-    //     component: BecomePartnerPage,
-    // },
+    {
+        path: '/jadi-partner',
+        component: BecomePartnerPage,
+    },
     // {
     //     path: '/ajukan-patner',
     //     component: SubmissionPartnerPage,

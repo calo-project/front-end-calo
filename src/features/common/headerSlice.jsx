@@ -6,7 +6,7 @@ export const headerSlice = createSlice({
         pageTitle: "Home",  // current page title state management
         noOfNotifications : 15,  // no of unread notifications
         newNotificationMessage : "",  // message of notification to be shown
-        newNotificationStatus : 1,   // to check the notification type -  success/ error/ info
+        newNotificationStatus : 1,   // to ch../../../eck the notification type -  success/ error/ info
     },
     reducers: {
         setPageTitle: (state, action) => {

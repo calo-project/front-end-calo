@@ -1,12 +1,16 @@
 import React from "react";
-import Navbar from "../../../../components/common/layouts/Navbar.jsx";
-import Footer from "../../../../components/common/layouts/Footer.jsx";
+import Navbar from "./Navbar.jsx";
+import Footer from "./Footer.jsx";
+// import SuspenseContent from "../../../../containers/SuspenseContent.jsx";
 
 const UserLayout = ({ children }) => {
   return (
     <>
       <Navbar />
-      {children}
+      {/* <SuspenseContent fallback={<SuspenseContent />} /> */}
+      <main>
+        {children}
+      </main>
       <Footer />
     </>
   );
