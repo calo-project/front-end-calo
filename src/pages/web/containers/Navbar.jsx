@@ -1,47 +1,53 @@
-import React, {  useEffect, useState } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import BellIcon  from '@heroicons/react/24/outline/BellIcon'
-import Bars3Icon  from '@heroicons/react/24/outline/Bars3Icon'
-import MoonIcon from '@heroicons/react/24/outline/MoonIcon'
-import SunIcon from '@heroicons/react/24/outline/SunIcon'
-import { openRightDrawer } from '../../../features/common/rightDrawerSlice.jsx';
-import { RIGHT_DRAWER_TYPES } from '../../../utils/globalConstantUtil.js';
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import BellIcon from "@heroicons/react/24/outline/BellIcon";
+import Bars3Icon from "@heroicons/react/24/outline/Bars3Icon";
+import MoonIcon from "@heroicons/react/24/outline/MoonIcon";
+import SunIcon from "@heroicons/react/24/outline/SunIcon";
+import { openRightDrawer } from "../../../features/common/rightDrawerSlice.jsx";
+import { RIGHT_DRAWER_TYPES } from "../../../utils/globalConstantUtil.js";
 
-import { NavLink,  Routes, Link , useLocation} from 'react-router-dom'
+import { NavLink, Routes, Link, useLocation } from "react-router-dom";
 
+function Header() {
+  const dispatch = useDispatch();
+  const { noOfNotifications, pageTitle } = useSelector((state) => state.header);
+  const [currentTheme, setCurrentTheme] = useState(
+    localStorage.getItem("theme")
+  );
 
-function Header(){
-
-    const dispatch = useDispatch()
-    const {noOfNotifications, pageTitle} = useSelector(state => state.header)
-    const [currentTheme, setCurrentTheme] = useState(localStorage.getItem("theme"))
-
-    useEffect(() => {
-        if(currentTheme === null){
-            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ) {
-                setCurrentTheme("dark")
-            }else{
-                setCurrentTheme("light")
-            }
-        }
-        // 👆 false parameter is required for react project
-      }, [])
-
-
-    // Opening right sidebar for notification
-    const openNotification = () => {
-        dispatch(openRightDrawer({header : "Notifications", bodyType : RIGHT_DRAWER_TYPES.NOTIFICATION}))
+  useEffect(() => {
+    if (currentTheme === null) {
+      if (
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches
+      ) {
+        setCurrentTheme("dark");
+      } else {
+        setCurrentTheme("light");
+      }
     }
+    // 👆 false parameter is required for react project
+  }, []);
 
+  // Opening right sidebar for notification
+  const openNotification = () => {
+    dispatch(
+      openRightDrawer({
+        header: "Notifications",
+        bodyType: RIGHT_DRAWER_TYPES.NOTIFICATION,
+      })
+    );
+  };
 
-    function logoutUser(){
-        localStorage.clear();
-        window.location.href = '/'
-    }
+  function logoutUser() {
+    localStorage.clear();
+    window.location.href = "/";
+  }
 
-    return(
-        <>
-          <div className="">
+  return (
+    <>
+      <nav className="sticky top-0 bg-blue-500 z-50">
         <div className="navbar">
           <div className="flex-1">
             <a className="btn btn-ghost text-xl">Calo!</a>
@@ -110,9 +116,9 @@ function Header(){
             </div>
           </div>
         </div>
-      </div>
-        </>
-    )
+      </nav>
+    </>
+  );
 }
 
-export default Header
+export default Header;
