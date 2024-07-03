@@ -41,7 +41,7 @@ export default {
     themes: [
       {
         calo: {
-          primary: "#141414",
+          primary: "#7D61F2",
           secondary: "#201E13",
           accent: "#37cdbe",
           neutral: "#3d4451",
