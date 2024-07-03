@@ -47,7 +47,7 @@ function Header() {
 
   return (
     <>
-      <nav className="sticky top-0 bg-blue-500 z-50">
+      <nav className="sticky top-0 bg-base-100 z-50 text-white">
         <div className="navbar">
           <div className="flex-1">
             <a className="btn btn-ghost text-xl">Calo!</a>
@@ -55,9 +55,9 @@ function Header() {
           <div className="navbar-start hidden lg:flex">
             <ul className="menu menu-horizontal px-1">
               <li>
-                <a>Item 1</a>
+              <Link to="/">Beranda</Link>
               </li>
-              <li>
+              {/* <li>
                 <details>
                   <summary>Parent</summary>
                   <ul className="p-2">
@@ -69,9 +69,15 @@ function Header() {
                     </li>
                   </ul>
                 </details>
+              </li> */}
+              <li>
+              <Link to="/acara">Event</Link>
               </li>
               <li>
-                <a>Item 3</a>
+              <Link to="/tentang">Tentang</Link>
+              </li>
+              <li>
+                <Link to="/jadi-partner">Partner</Link>
               </li>
             </ul>
           </div>

@@ -4,6 +4,7 @@ import React from "react";
 const HomePage = lazy(() => import('../pages/web/user/HomePage.jsx'));
 import AboutPage from '../pages/web/user/features/about/AboutPage.jsx';
 import BecomePartnerPage from '../pages/web/user/features/becomepartner/BecomePartnerPage.jsx';
+import EventPage from '../pages/web/user/features/event/EventPage.jsx'
 
 
 const routes = [
@@ -19,14 +20,10 @@ const routes = [
         path: '/jadi-partner',
         component: BecomePartnerPage,
     },
-    // {
-    //     path: '/ajukan-patner',
-    //     component: SubmissionPartnerPage,
-    // },
-    // {
-    //     path: '/acara',
-    //     component: EventPage,
-    // },
+    {
+        path: '/acara',
+        component: EventPage,
+    },
     // {
     //     path: '/acara/*',
     //     component: EventDetailPage,
