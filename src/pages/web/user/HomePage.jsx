@@ -12,14 +12,14 @@ import AnimatedGridPattern from "../../../components/magicui/animated-grid-patte
 import SparklesText from "../../../components/magicui/sparkles-text";
 import { BorderBeam } from "../../../components/magicui/border-beam";
 import OrbitingCircles from "../../../components/magicui/orbiting-circles";
-
+import Slider from "../../../components/slider"
 
 const HomePage = () => {
   return (
       <div className="flex flex-col gap-y-12">
         <div className="flex flex-row">
           <div className="w-1/2 flex flex-col px-4 gap-y-6">
-            <h1>Bebas Calo,<br/>Nikmati Acara</h1>
+            <h1 className="text-4xl">Bebas Calo,<br/>Nikmati Acara</h1>
             <p className='pe-2' style={{ textAlign: 'justify' }}>
                 Misi kami adalah memberikan pengalaman pembelian tiket yang aman dan adil, 
                 melindungi konsumen dan penyelenggara dari penipuan. Nikmati acara Anda dengan 
@@ -80,6 +80,20 @@ const HomePage = () => {
                 </div>
             </div>
         </div>
+
+        <div className="flex flex-col items-center justify-center text-center gap-y-4">
+            <h1 className="text-3xl">yuk jadi partner<br/><span>calotiket.com</span></h1>
+            <p className="w-2/5">
+                Bergabunglah dengan Calo dan rasakan kemudahan menyambut lebih 
+                banyak pengunjung untuk acara dan eventmu. Daftarkan tiket acara, 
+                konser, festival, hingga pertunjukanmu untuk menikmati keuntungannya!
+            </p>
+            <button className="btn btn-primary">Gabung Sekarang</button>
+        </div>
+        
+
+        <Slider />
+
 
     </div>
   );
