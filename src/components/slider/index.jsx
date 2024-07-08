@@ -36,15 +36,36 @@ const Carousel = () => {
 
   return (
     <div className="relative w-full" data-carousel="static">
-      <div className="relative h-56 overflow-hidden rounded-lg md:h-96">
-        <div className="flex gap-x-3">
+      <div className="relative h-76 overflow-hidden rounded-lg md:h-96">
+        <div className="flex gap-x-2 px-1.5">
           {getVisibleImages().map((image, index) => (
-            <img
-              key={index}
-              src={image}
-              className="w-1/5"
-              alt={`Slide ${index}`}
-            />
+            <>
+            <div className="flex flex-col space-y-1 bg-[rgba(255,255,255,0.1)] p-2 rounded-lg">
+              <img
+                key={index}
+                src={image}
+                className="rounded-lg h-[160px] w-[145px] md:h-[280px] md:w-[255px]"
+                alt={`Slide ${index}`}
+              />
+              <h1 className="mt-4">Nama {image.slice(-11,-9)}</h1>
+              <div className="flex flex-col gap-y-2 md:flex-row gap-x-2">
+                <div className="flex flex-row rounded-lg text-sm bg-[#1d1c1c] text-white p-3 w-[145px] md:w-[185px]">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-stopwatch-fill pr-1 " viewBox="0 0 16 16"><path d="M6.5 0a.5.5 0 0 0 0 1H7v1.07A7.001 7.001 0 0 0 8 16a7 7 0 0 0 5.29-11.584l.013-.012.354-.354.353.354a.5.5 0 1 0 .707-.707l-1.414-1.415a.5.5 0 1 0-.707.707l.354.354-.354.354-.012.012A6.97 6.97 0 0 0 9 2.071V1h.5a.5.5 0 0 0 0-1zm2 5.6V9a.5.5 0 0 1-.5.5H4.5a.5.5 0 0 1 0-1h3V5.6a.5.5 0 1 1 1 0"/></svg> 
+                  {image.slice(-8,-6)} Nov 2024
+                </div>
+                {/* <p className="btn bg-[#2C2C2C] text-white cursor-not-allowed" disabled>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-stopwatch-fill" viewBox="0 0 16 16"><path d="M6.5 0a.5.5 0 0 0 0 1H7v1.07A7.001 7.001 0 0 0 8 16a7 7 0 0 0 5.29-11.584l.013-.012.354-.354.353.354a.5.5 0 1 0 .707-.707l-1.414-1.415a.5.5 0 1 0-.707.707l.354.354-.354.354-.012.012A6.97 6.97 0 0 0 9 2.071V1h.5a.5.5 0 0 0 0-1zm2 5.6V9a.5.5 0 0 1-.5.5H4.5a.5.5 0 0 1 0-1h3V5.6a.5.5 0 1 1 1 0"/></svg> 
+                  {image.slice(-7)}
+                </p> */}
+                <button className="btn btn-primary">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-fill" viewBox="0 0 16 16">
+                    <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4z"/>
+                  </svg>
+                  Beli Tiket
+                </button>
+              </div>
+            </div>
+            </>
           ))}
         </div>
       </div>

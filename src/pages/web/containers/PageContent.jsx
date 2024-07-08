@@ -26,7 +26,7 @@ function PageContent(){
     return(
         <div className="drawer-content flex flex-col ">
             <Navbar/>
-            <main className="flex-1 overflow-y-auto bg-base-200" ref={mainContentRef}>
+            <main className="flex-1 overflow-y-auto" ref={mainContentRef}>
                 <Suspense fallback={<SuspenseContent />}>
                         <Routes>
                             {

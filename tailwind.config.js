@@ -3,6 +3,12 @@ export default {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      screens: {
+        'xs': '425px',
+      },
+      backgroundImage: {
+        'bg-tentang': "url('/src/assets/background/BG-tentang.svg')",
+      },
       animation: {
         marquee: "marquee var(--duration) linear infinite",
         "marquee-vertical": "marquee-vertical var(--duration) linear infinite",
