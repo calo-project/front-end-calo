@@ -3,8 +3,14 @@ export default {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      colors: {
+        customStart: '#7D61F2',
+        customEnd: '#681BC1',
+      },
       screens: {
-        'xs': '425px',
+        'xs': '375px',
+        'ss' : '425px',
+        'xl': '1440px'
       },
       backgroundImage: {
         'bg-tentang': "url('/src/assets/background/BG-tentang.svg')",

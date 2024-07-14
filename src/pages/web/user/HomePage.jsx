@@ -14,11 +14,13 @@ import { BorderBeam } from "../../../components/magicui/border-beam";
 import OrbitingCircles from "../../../components/magicui/orbiting-circles";
 import Slider from "../../../components/slider"
 import Unggul from "../../../components/unggulan"
+import Accordion from "../../../components/Accordion"
+import Join from "../../../components/JoinPartner"
 
 const HomePage = () => {
   return (
-      <div className="flex flex-col gap-y-12">
-        <div className="flex flex-row">
+      <div className="flex flex-col gap-y-12 justify-center items-center">
+        <div className="flex flex-row xs:p-2 sm:w-5/6">
           <div className="w-1/2 flex flex-col px-4 gap-y-6">
             <h1 className="text-4xl">Bebas Calo,<br/><span className="text-[#DCFE52]">Nikmati Acara</span></h1>
             <p className='pe-2' style={{ textAlign: 'justify' }}>
@@ -54,7 +56,7 @@ const HomePage = () => {
           </div>
         </div>
 
-        <div className="flex flex-col ml-3 gap-y-2 md:flex-row md:gap-y-3 ">
+        <div className="flex flex-col ml-3 gap-y-2 md:flex-row md:gap-y-3 w-5/6">
             <div className="md:w-1/3">
                 <h1 className="md:w-4/5 text-2xl lg:text-3xl text-[#DCFE52] text-center md:text-start">KEUNGGULAN CALO APA SIH ?</h1>
             </div>
@@ -94,144 +96,56 @@ const HomePage = () => {
         </div>
 
         <div className="flex flex-col items-center justify-center text-center gap-y-4">
-            <h1 className="text-5xl">yuk jadi partner<br/>
-            <span className="relative inline-block text-lg mt-2">
-                <svg
-                    className="absolute inset-0"
-                    viewBox="-10 0 480 60"
-                    preserveAspectRatio="none"
-                >
-                    <text
-                    x="0"
-                    y="35"
-                    className="text-6xl font-bold italic  uppercase"
-                    fill="transparent"
-                    stroke="#DCFE52"
-                    strokeWidth="0.5"
-                    textAnchor="start"
-                    dominantBaseline="middle"
-                    >
-                    calotiket.com
-                    </text>
-                </svg>
-                <span className="text-6xl font-bold text-transparent bg-clip-text">
-                    calotiket.com
-                </span>
-            </span>
-            </h1>
-            <p className="md:w-3/5 lg:w-2/5">
-                Bergabunglah dengan Calo dan rasakan kemudahan menyambut lebih 
-                banyak pengunjung untuk acara dan eventmu. Daftarkan tiket acara, 
-                konser, festival, hingga pertunjukanmu untuk menikmati keuntungannya!
-            </p>
-            <button className="btn btn-primary">Gabung Sekarang</button>
+            <Join />
         </div>
 
-        <h1 className="text-[#DCFE52] text-3xl px-4">Artis Unggulan</h1>
-        <Unggul />
-        {/* <div className="flex flex-wrap  items-center justify-center text-center gap-y-6">
-            <div className="w-1/2 md:w-1/3 lg:w-1/4 flex justify-center items-center gap-x-3">
-                <h1>1</h1>
-                <img src="https://i.pinimg.com/564x/31/81/68/318168c0f8d650267176330bf2f3c3e7.jpg" className="w-14 h-14 rounded-full" alt="" />
-                <div className="flex flex-col">
-                    <h1>Artis 1</h1>
-                    <h1>Negara</h1>
-                </div>
-            </div>
-            <div className="w-1/2 md:w-1/3 lg:w-1/4 flex justify-center items-center gap-x-3">
-                <h1>1</h1>
-                <img src="https://i.pinimg.com/564x/31/81/68/318168c0f8d650267176330bf2f3c3e7.jpg" className="w-14 h-14 rounded-full" alt="" />
-                <div className="flex flex-col">
-                    <h1>Artis 1</h1>
-                    <h1>Negara</h1>
-                </div>
-            </div>
-            <div className="w-1/2 md:w-1/3 lg:w-1/4 flex justify-center items-center gap-x-3">
-                <h1>1</h1>
-                <img src="https://i.pinimg.com/564x/31/81/68/318168c0f8d650267176330bf2f3c3e7.jpg" className="w-14 h-14 rounded-full" alt="" />
-                <div className="flex flex-col">
-                    <h1>Artis 1</h1>
-                    <h1>Negara</h1>
-                </div>
-            </div>
-            <div className="w-1/2 md:w-1/3 lg:w-1/4 flex justify-center items-center gap-x-3">
-                <h1>1</h1>
-                <img src="https://i.pinimg.com/564x/31/81/68/318168c0f8d650267176330bf2f3c3e7.jpg" className="w-14 h-14 rounded-full" alt="" />
-                <div className="flex flex-col">
-                    <h1>Artis 1</h1>
-                    <h1>Negara</h1>
-                </div>
-            </div>
-            <div className="w-1/2 md:w-1/3 lg:w-1/4 flex justify-center items-center gap-x-3">
-                <h1>1</h1>
-                <img src="https://i.pinimg.com/564x/31/81/68/318168c0f8d650267176330bf2f3c3e7.jpg" className="w-14 h-14 rounded-full" alt="" />
-                <div className="flex flex-col">
-                    <h1>Artis 1</h1>
-                    <h1>Negara</h1>
-                </div>
-            </div>
-            <div className="w-1/2 md:w-1/3 lg:w-1/4 flex justify-center items-center gap-x-3">
-                <h1>1</h1>
-                <img src="https://i.pinimg.com/564x/31/81/68/318168c0f8d650267176330bf2f3c3e7.jpg" className="w-14 h-14 rounded-full" alt="" />
-                <div className="flex flex-col">
-                    <h1>Artis 1</h1>
-                    <h1>Negara</h1>
-                </div>
-            </div>
-            <div className="w-1/2 md:w-1/3 lg:w-1/4 flex justify-center items-center gap-x-3">
-                <h1>1</h1>
-                <img src="https://i.pinimg.com/564x/31/81/68/318168c0f8d650267176330bf2f3c3e7.jpg" className="w-14 h-14 rounded-full" alt="" />
-                <div className="flex flex-col">
-                    <h1>Artis 1</h1>
-                    <h1>Negara</h1>
-                </div>
-            </div>
-            <div className="w-1/2 md:w-1/3 lg:w-1/4 flex justify-center items-center gap-x-3">
-                <h1>1</h1>
-                <img src="https://i.pinimg.com/564x/31/81/68/318168c0f8d650267176330bf2f3c3e7.jpg" className="w-14 h-14 rounded-full" alt="" />
-                <div className="flex flex-col">
-                    <h1>Artis 1</h1>
-                    <h1>Negara</h1>
-                </div>
-            </div>
-            <div className="w-1/2 md:w-1/3 lg:w-1/4 flex justify-center items-center gap-x-3">
-                <h1>1</h1>
-                <img src="https://i.pinimg.com/564x/31/81/68/318168c0f8d650267176330bf2f3c3e7.jpg" className="w-14 h-14 rounded-full" alt="" />
-                <div className="flex flex-col">
-                    <h1>Artis 1</h1>
-                    <h1>Negara</h1>
-                </div>
-            </div>
-            <div className="w-1/2 md:w-1/3 lg:w-1/4 flex justify-center items-center gap-x-3">
-                <h1>1</h1>
-                <img src="https://i.pinimg.com/564x/31/81/68/318168c0f8d650267176330bf2f3c3e7.jpg" className="w-14 h-14 rounded-full" alt="" />
-                <div className="flex flex-col">
-                    <h1>Artis 1</h1>
-                    <h1>Negara</h1>
-                </div>
-            </div>
-            <div className="w-1/2 md:w-1/3 lg:w-1/4 flex justify-center items-center gap-x-3">
-                <h1>1</h1>
-                <img src="https://i.pinimg.com/564x/31/81/68/318168c0f8d650267176330bf2f3c3e7.jpg" className="w-14 h-14 rounded-full" alt="" />
-                <div className="flex flex-col">
-                    <h1>Artis 1</h1>
-                    <h1>Negara</h1>
-                </div>
-            </div>
-            <div className="w-1/2 md:w-1/3 lg:w-1/4 flex justify-center items-center gap-x-3">
-                <h1>1</h1>
-                <img src="https://i.pinimg.com/564x/31/81/68/318168c0f8d650267176330bf2f3c3e7.jpg" className="w-14 h-14 rounded-full" alt="" />
-                <div className="flex flex-col">
-                    <h1>Artis 1</h1>
-                    <h1>Negara</h1>
-                </div>
-            </div>
-        </div> */}
+        <div className="flex flex-col w-5/6 gap-y-4">
+            <h1 className="text-[#DCFE52] text-3xl px-4">Artis Unggulan</h1>
+            <Unggul />
+        </div>
         
 
-        <h1 className="text-[#DCFE52] text-3xl px-4">Yang Akan Datang</h1>
-        <Slider />
+        <div className="flex flex-col sm:w-5/6 gap-y-4">
+            <h1 className="text-[#DCFE52] text-3xl px-4">Yang Akan Datang</h1>
+            <Slider />
+        </div>
 
+        <div className="flex h-[16rem] w-screen sm:h-[24rem] lg:h-[25rem] bg-gradient-to-b from-customStart to-customEnd text-white">
+            <div className="flex flex-col sm:w-1/2 text-3xl sm:text-4xl lg:text-5xl xl:text-6xl sm:ml-12 lg:ml-24 lg:pl-4 justify-center gap-y-11">
+                <h1>Makin gampang mengelola tiket dengan <span className="text-[#DCFE52] italic">Calo! App</span></h1>
+                <button className="flex mt-3 w-48 h-14 bg-black text-white rounded-lg items-center justify-center">
+                    <div class="mr-3">
+                        <svg viewBox="30 336.7 120.9 129.2" width="30">
+                            <path fill="#FFD400" d="M119.2,421.2c15.3-8.4,27-14.8,28-15.3c3.2-1.7,6.5-6.2,0-9.7  c-2.1-1.1-13.4-7.3-28-15.3l-20.1,20.2L119.2,421.2z"/>
+                            <path fill="#FF3333" d="M99.1,401.1l-64.2,64.7c1.5,0.2,3.2-0.2,5.2-1.3  c4.2-2.3,48.8-26.7,79.1-43.3L99.1,401.1L99.1,401.1z"/>
+                            <path fill="#48FF48" d="M99.1,401.1l20.1-20.2c0,0-74.6-40.7-79.1-43.1  c-1.7-1-3.6-1.3-5.3-1L99.1,401.1z"/>
+                            <path fill="#3BCCFF" d="M99.1,401.1l-64.3-64.3c-2.6,0.6-4.8,2.9-4.8,7.6  c0,7.5,0,107.5,0,113.8c0,4.3,1.7,7.4,4.9,7.7L99.1,401.1z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="text-xs">GET IT ON</div>
+                        <div class="text-xl font-semibold font-sans -mt-1">Google Play</div>
+                    </div>
+                </button>
+            </div>
+            <div className="hidden sm:flex relative w-1/2 pl-12">
+                <img src="../../src/assets/icons/iphone.svg" className="absolute bottom-0 right-4 md:right-16 lg:right-20 w-80" alt="" />
+            </div>
+                {/* <img src="../../src/assets/icons/iphone.svg" className="w-80 mr-[120px] lg:ml-[70px] xl:ml-[120px] mt-[63px]" alt="" /> */}
+        </div>
+
+        <div className="mt-11">
+            <h1 className="text-[#DCFE52] text-3xl px-4">Frequently asked questions</h1>
+            <Accordion title={"asdassad"}>
+                Aasasdas
+            </Accordion>
+            <Accordion title={"asdassad1"}>
+                Aasasdas
+            </Accordion>
+            <Accordion title={"asdassad2"}>
+                Aasasdas
+            </Accordion>
+        </div>
 
     </div>
   );

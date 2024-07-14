@@ -37,17 +37,18 @@ const Carousel = () => {
   return (
     <div className="relative w-full" data-carousel="static">
       <div className="relative h-76 overflow-hidden rounded-lg md:h-96">
-        <div className="flex gap-x-2 px-1.5">
+        <div className="flex gap-x-2">
+          <div className="flex flex-row relative left-[-75px] ss:left-[-55px] md:left-[10px] gap-x-2">
           {getVisibleImages().map((image, index) => (
             <>
-            <div className="flex flex-col space-y-1 bg-[rgba(255,255,255,0.1)] p-2 rounded-lg">
+            <div className="flex flex-col space-y-1 bg-[rgba(255,255,255,0.03)] backdrop-blur-xl p-2 rounded-xl">
               <img
                 key={index}
                 src={image}
-                className="rounded-lg h-[160px] w-[145px] md:h-[280px] md:w-[255px]"
                 alt={`Slide ${index}`}
+                className="h-44 md:h-72 rounded-2xl"
               />
-              <h1 className="mt-4">Nama {image.slice(-11,-9)}</h1>
+              <h1 className="mt-4 font-medium">Nama {image.slice(-11,-9)}</h1>
               <div className="flex flex-col gap-y-2 md:flex-row gap-x-2">
                 <div className="flex flex-row rounded-lg text-sm bg-[#1d1c1c] text-white p-3 w-[145px] md:w-[185px]">
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-stopwatch-fill pr-1 " viewBox="0 0 16 16"><path d="M6.5 0a.5.5 0 0 0 0 1H7v1.07A7.001 7.001 0 0 0 8 16a7 7 0 0 0 5.29-11.584l.013-.012.354-.354.353.354a.5.5 0 1 0 .707-.707l-1.414-1.415a.5.5 0 1 0-.707.707l.354.354-.354.354-.012.012A6.97 6.97 0 0 0 9 2.071V1h.5a.5.5 0 0 0 0-1zm2 5.6V9a.5.5 0 0 1-.5.5H4.5a.5.5 0 0 1 0-1h3V5.6a.5.5 0 1 1 1 0"/></svg> 
@@ -68,10 +69,11 @@ const Carousel = () => {
             </>
           ))}
         </div>
+        </div>
       </div>
       <button
         type="button"
-        className="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+        className="bg-white bg-opacity-0 backdrop-blur-[2px] absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
         onClick={handlePrev}
       >
         <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
@@ -95,7 +97,7 @@ const Carousel = () => {
       </button>
       <button
         type="button"
-        className="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+        className="bg-white bg-opacity-0 backdrop-blur-[2px] absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
         onClick={handleNext}
       >
         <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">

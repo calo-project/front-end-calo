@@ -22,7 +22,7 @@ function UserLayout(){
     return(
       <>
         { /* Left drawer - containing page content and side bar (always open) */ }
-        <div className="drawer  lg:drawer-open">
+        <div className="drawer  lg:drawer-open overflow-x-hidden">
             <input id="left-sidebar-drawer" type="checkbox" className="drawer-toggle" />
             <PageContent/>
         </div>
