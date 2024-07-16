@@ -10,13 +10,28 @@ contract CaloToken is ERC721 {
 
     struct CaloEvent {
         uint256 id;
+        string slug;
         string name;
+        string descriptionEvent;
+        string place;
+        string province;
+        string city;
         uint256 cost;
+        string detailPlace;
         uint256 tickets;
         uint256 maxTickets;
+        string linkAddress;
+        string poster;
+        string linkSosmed;
+        string startTime;
+        string endTime;
         string date;
-        string time;
-        string location;
+        string idVendor;
+        string slug;
+        string vendorDescription;
+        string vendorWallet;
+        string vendorLinkWebsite;
+        string vendorLinkInstagram;
     }
 
     mapping(uint256 => CaloEvent) public caloevent;
