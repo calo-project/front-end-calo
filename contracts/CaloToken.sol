@@ -10,28 +10,15 @@ contract CaloToken is ERC721 {
 
     struct CaloEvent {
         uint256 id;
-        string slug;
         string name;
-        string descriptionEvent;
-        string place;
-        string province;
-        string city;
         uint256 cost;
-        string detailPlace;
         uint256 tickets;
         uint256 maxTickets;
-        string linkAddress;
-        string poster;
-        string linkSosmed;
-        string startTime;
-        string endTime;
         string date;
-        string idVendor;
+        string time;
+        string location;
         string slug;
-        string vendorDescription;
-        string vendorWallet;
-        string vendorLinkWebsite;
-        string vendorLinkInstagram;
+        string vendorAddress;
     }
 
     mapping(uint256 => CaloEvent) public caloevent;
@@ -56,7 +43,9 @@ contract CaloToken is ERC721 {
         uint256 _maxTickets,
         string memory _date,
         string memory _time,
-        string memory _location
+        string memory _location,
+        string memory _slug,
+        string memory _vendorAddress
     ) public onlyOwner {
         totalCaloEvent++;
         caloevent[totalCaloEvent] = CaloEvent(
@@ -67,7 +56,9 @@ contract CaloToken is ERC721 {
             _maxTickets,
             _date,
             _time,
-            _location
+            _location,
+            _slug,
+            _vendorAddress
         );
     }
 

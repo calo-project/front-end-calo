@@ -12,6 +12,8 @@ const EVENT_MAX_TICKETS = 100;
 const EVENT_DATE = "22-02-2025";
 const EVENT_TIME = "10:00 WIB";
 const EVENT_LOCATION = "Jember";
+const EVENT_SLUG = "jember-fest-2023";
+const EVENT_VENDOR_ADDRESS = "0x41adnB8KVC7un28nnvJ";
 
 describe(NAME, () => {
   let caloToken;
@@ -31,7 +33,9 @@ describe(NAME, () => {
         EVENT_MAX_TICKETS,
         EVENT_DATE,
         EVENT_TIME,
-        EVENT_LOCATION
+        EVENT_LOCATION,
+        EVENT_SLUG,
+        EVENT_VENDOR_ADDRESS
       );
 
     await transaction.wait();
@@ -67,6 +71,8 @@ describe(NAME, () => {
       expect(caloevent.date).to.be.equal(EVENT_DATE);
       expect(caloevent.time).to.be.equal(EVENT_TIME);
       expect(caloevent.location).to.be.equal(EVENT_LOCATION);
+      expect(caloevent.slug).to.be.equal(EVENT_SLUG);
+      expect(caloevent.vendorAddress).to.be.equal(EVENT_VENDOR_ADDRESS);
     });
   });
 
