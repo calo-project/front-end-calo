@@ -17,49 +17,59 @@ async function main() {
 
   const events = [
     {
-      name: "UFC Miami",
+      name: "Ariana Grande",
       cost: tokens(3),
       tickets: 0,
       maxTickets: 0,
-      date: "May 31",
-      time: "6:00PM EST",
-      location: "Miami-Dade Arena - Miami, FL"
+      date: "22, Mei 2024",
+      time: "6:00PM WIB",
+      location: "Alun-alun Kota - Solo",
+      slug: "infokan123",
+      vendorAddress: "0x479ba4d0bfeb7ea12b39cc97b66d598f1ee2d15e59c4188371724113e7db7296"
     },
     {
-      name: "ETH Tokyo",
+      name: "Joji",
       cost: tokens(1),
       tickets: 125,
       maxTickets: 125,
-      date: "Jun 2",
-      time: "1:00PM JST",
-      location: "Tokyo, Japan"
+      date: "22 Juli 2024",
+      time: "1:00PM WIB",
+      location: "Alun-alun Kota - Klaten",
+      slug: "infokan123",
+      vendorAddress: "0x479ba4d0bfeb7ea12b39cc97b66d598f1ee2d15e59c4188371724113e7db7296"
     },
     {
-      name: "ETH Privacy Hackathon",
+      name: "Bilie Eilish",
       cost: tokens(0.25),
       tickets: 200,
       maxTickets: 200,
-      date: "Jun 9",
-      time: "10:00AM TRT",
-      location: "Turkey, Istanbul"
+      date: "22 Juni 2024",
+      time: "10:00AM WIB",
+      location: "Alun-alun Kota - Ngawi",
+      slug: "infokan123",
+      vendorAddress: "0x479ba4d0bfeb7ea12b39cc97b66d598f1ee2d15e59c4188371724113e7db7296"
     },
     {
-      name: "Dallas Mavericks vs. San Antonio Spurs",
+      name: "Bernadya",
       cost: tokens(5),
       tickets: 0,
       maxTickets: 10,
-      date: "Jun 11",
-      time: "2:30PM CST",
-      location: "American Airlines Center - Dallas, TX"
+      date: "10 Agustus 2024",
+      time: "2:30PM WIB",
+      location: "Alun-alun Kota - Karawang",
+      slug: "infokan123",
+      vendorAddress: "0x479ba4d0bfeb7ea12b39cc97b66d598f1ee2d15e59c4188371724113e7db7296"
     },
     {
-      name: "ETH Global Toronto",
+      name: "Guyon Waton",
       cost: tokens(1.5),
       tickets: 125,
       maxTickets: 125,
-      date: "Jun 23",
-      time: "11:00AM EST",
-      location: "Toronto, Canada"
+      date: "19 September 2024",
+      time: "11:00AM WIB",
+      location: "Alun-alun Kota - Jember",
+      slug: "infokan123",
+      vendorAddress: "0x479ba4d0bfeb7ea12b39cc97b66d598f1ee2d15e59c4188371724113e7db7296"
     }
   ]
 
@@ -72,6 +82,8 @@ async function main() {
       events[i].date,
       events[i].time,
       events[i].location,
+      events[i].slug,
+      events[i].vendorAddress,
     )
 
     await transaction.wait()

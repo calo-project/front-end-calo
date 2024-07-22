@@ -38,6 +38,8 @@ export declare namespace CaloToken {
     date: PromiseOrValue<string>;
     time: PromiseOrValue<string>;
     location: PromiseOrValue<string>;
+    slug: PromiseOrValue<string>;
+    vendorAddress: PromiseOrValue<string>;
   };
 
   export type CaloEventStructOutput = [
@@ -46,6 +48,8 @@ export declare namespace CaloToken {
     BigNumber,
     BigNumber,
     BigNumber,
+    string,
+    string,
     string,
     string,
     string
@@ -58,6 +62,8 @@ export declare namespace CaloToken {
     date: string;
     time: string;
     location: string;
+    slug: string;
+    vendorAddress: string;
   };
 }
 
@@ -71,7 +77,7 @@ export interface CaloTokenInterface extends utils.Interface {
     "getCaloEvent(uint256)": FunctionFragment;
     "hasBought(uint256,address)": FunctionFragment;
     "isApprovedForAll(address,address)": FunctionFragment;
-    "list(string,uint256,uint256,uint256,string,string,string)": FunctionFragment;
+    "list(string,uint256,uint256,uint256,string,string,string,string,string)": FunctionFragment;
     "mint(uint256)": FunctionFragment;
     "name()": FunctionFragment;
     "owner()": FunctionFragment;
@@ -154,6 +160,8 @@ export interface CaloTokenInterface extends utils.Interface {
       PromiseOrValue<BigNumberish>,
       PromiseOrValue<BigNumberish>,
       PromiseOrValue<BigNumberish>,
+      PromiseOrValue<string>,
+      PromiseOrValue<string>,
       PromiseOrValue<string>,
       PromiseOrValue<string>,
       PromiseOrValue<string>
@@ -368,6 +376,8 @@ export interface CaloToken extends BaseContract {
         BigNumber,
         string,
         string,
+        string,
+        string,
         string
       ] & {
         id: BigNumber;
@@ -378,6 +388,8 @@ export interface CaloToken extends BaseContract {
         date: string;
         time: string;
         location: string;
+        slug: string;
+        vendorAddress: string;
       }
     >;
 
@@ -416,6 +428,8 @@ export interface CaloToken extends BaseContract {
       _date: PromiseOrValue<string>,
       _time: PromiseOrValue<string>,
       _location: PromiseOrValue<string>,
+      _slug: PromiseOrValue<string>,
+      _vendorAddress: PromiseOrValue<string>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<ContractTransaction>;
 
@@ -505,6 +519,8 @@ export interface CaloToken extends BaseContract {
       BigNumber,
       string,
       string,
+      string,
+      string,
       string
     ] & {
       id: BigNumber;
@@ -515,6 +531,8 @@ export interface CaloToken extends BaseContract {
       date: string;
       time: string;
       location: string;
+      slug: string;
+      vendorAddress: string;
     }
   >;
 
@@ -553,6 +571,8 @@ export interface CaloToken extends BaseContract {
     _date: PromiseOrValue<string>,
     _time: PromiseOrValue<string>,
     _location: PromiseOrValue<string>,
+    _slug: PromiseOrValue<string>,
+    _vendorAddress: PromiseOrValue<string>,
     overrides?: Overrides & { from?: PromiseOrValue<string> }
   ): Promise<ContractTransaction>;
 
@@ -642,6 +662,8 @@ export interface CaloToken extends BaseContract {
         BigNumber,
         string,
         string,
+        string,
+        string,
         string
       ] & {
         id: BigNumber;
@@ -652,6 +674,8 @@ export interface CaloToken extends BaseContract {
         date: string;
         time: string;
         location: string;
+        slug: string;
+        vendorAddress: string;
       }
     >;
 
@@ -690,6 +714,8 @@ export interface CaloToken extends BaseContract {
       _date: PromiseOrValue<string>,
       _time: PromiseOrValue<string>,
       _location: PromiseOrValue<string>,
+      _slug: PromiseOrValue<string>,
+      _vendorAddress: PromiseOrValue<string>,
       overrides?: CallOverrides
     ): Promise<void>;
 
@@ -841,6 +867,8 @@ export interface CaloToken extends BaseContract {
       _date: PromiseOrValue<string>,
       _time: PromiseOrValue<string>,
       _location: PromiseOrValue<string>,
+      _slug: PromiseOrValue<string>,
+      _vendorAddress: PromiseOrValue<string>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<BigNumber>;
 
@@ -959,6 +987,8 @@ export interface CaloToken extends BaseContract {
       _date: PromiseOrValue<string>,
       _time: PromiseOrValue<string>,
       _location: PromiseOrValue<string>,
+      _slug: PromiseOrValue<string>,
+      _vendorAddress: PromiseOrValue<string>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<PopulatedTransaction>;
 
