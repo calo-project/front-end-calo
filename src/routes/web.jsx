@@ -5,6 +5,9 @@ const HomePage = lazy(() => import('../pages/web/user/HomePage.jsx'));
 import AboutPage from '../pages/web/user/features/about/AboutPage.jsx';
 import BecomePartnerPage from '../pages/web/user/features/becomepartner/BecomePartnerPage.jsx';
 import EventPage from '../pages/web/user/features/event/EventPage.jsx'
+import EventDetail from '../pages/web/user/features/event/components/EventDetailPage.jsx'
+import FormPartner from '../pages/web/user/features/becomepartner/SubmissionPartner.jsx'
+// import EventDetail from '../pages/web/user/features/event/components/EventDetailPage.jsx'
 
 
 const routes = [
@@ -23,6 +26,14 @@ const routes = [
     {
         path: '/acara',
         component: EventPage,
+    },
+    {
+        path: '/partner',
+        component: FormPartner,
+    },
+    {
+        path: '/acara/:slug',
+        component: EventDetail,
     },
     // {
     //     path: '/acara/*',

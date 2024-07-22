@@ -7,7 +7,7 @@ export default function useFetchEvent(){
     const [loading, setLoading] = useState(true)
 
     const useFetchEvent = async () => {
-        const res = await axiosInstance.get('/event')
+        const res = await axiosInstance.get('/getallevent')
         const data = res.data.data
         setEvent(data)
         setLoading(false)
@@ -16,7 +16,7 @@ export default function useFetchEvent(){
     useEffect(() => {
         useFetchEvent()
     }, [])
-    // console.log(event);
+    
     return {
         event,
         loading

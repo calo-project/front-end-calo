@@ -16,12 +16,14 @@ import Slider from "../../../components/slider"
 import Unggul from "../../../components/unggulan"
 import Accordion from "../../../components/Accordion"
 import Join from "../../../components/JoinPartner"
+import { Link } from 'react-router-dom';
+
 
 const HomePage = () => {
   return (
       <div className="flex flex-col gap-y-12 justify-center items-center">
         <div className="flex flex-row xs:p-2 sm:w-5/6">
-          <div className="w-1/2 flex flex-col px-4 gap-y-6">
+          <div className="md:w-1/2 flex flex-col px-4 gap-y-6">
             <h1 className="text-4xl">Bebas Calo,<br/><span className="text-[#DCFE52]">Nikmati Acara</span></h1>
             <p className='pe-2' style={{ textAlign: 'justify' }}>
                 Misi kami adalah memberikan pengalaman pembelian tiket yang aman dan adil, 
@@ -30,8 +32,12 @@ const HomePage = () => {
             </p>    
             
             <div className="flex flex-row gap-x-2">
-                <button className="btn btn-primary">Masuk</button>
-                <button className="btn btn-outline btn-primary">Daftar</button>
+                <Link to={`/login`}>
+                    <button className="btn btn-primary">Masuk</button>
+                </Link>
+                <Link to={`/register`}>
+                    <button className="btn btn-outline btn-primary">Daftar</button>
+                </Link>
             </div>
             
             <div className="flex flex-row">
@@ -51,8 +57,8 @@ const HomePage = () => {
           </div>
           <br/>
           <br/>
-          <div className="w-1/2">
-              <h1>GAMBARRRR</h1>
+          <div className="hidden md:flex md:w-1/2 justify-center items-center">
+              <img className="h-80" src="../../../../src/assets/background/icon-in-home.svg" alt="" />
           </div>
         </div>
 
@@ -136,14 +142,14 @@ const HomePage = () => {
 
         <div className="mt-11">
             <h1 className="text-[#DCFE52] text-3xl px-4">Frequently asked questions</h1>
-            <Accordion title={"asdassad"}>
-                Aasasdas
+            <Accordion title={"Apakah saya bisa membatalkan/mengubah pesanan saya?"}>
+                Apakah saya bisa membatalkan/mengubah pesanan saya?
             </Accordion>
-            <Accordion title={"asdassad1"}>
-                Aasasdas
+            <Accordion title={"Bagaimana cara menghubungi tim dukungan Calo!"}>
+                Bagaimana cara menghubungi tim dukungan Calo! 
             </Accordion>
-            <Accordion title={"asdassad2"}>
-                Aasasdas
+            <Accordion title={"Apa langkah-langkahnya untuk melakukan pembelian?"}>
+                Apa langkah-langkahnya untuk melakukan pembelian?
             </Accordion>
         </div>
 

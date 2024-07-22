@@ -14,6 +14,7 @@ import Partner from "../pages/Partner";
 
 import Layout from "../containers/Layout.jsx";
 import Login from "../pages/Login.jsx";
+import Regis from "../pages/Register.jsx";
 import UserLayout from "../pages/web/containers/UserLayout.jsx";
 
 // const HomePage = lazy(() => import("../pages/web/user/HomePage.jsx"));
@@ -33,6 +34,7 @@ const AppRoutes = () => {
         <Route path="/app/*" element={<Layout />} />
 
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Regis />} />
 
         <Route path="*" element={<Navigate to={token ? "/" : "/"} replace />} />
       </Routes>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Join = () => {
     return (
@@ -33,7 +34,10 @@ const Join = () => {
             banyak pengunjung untuk acara dan eventmu. Daftarkan tiket acara, 
             konser, festival, hingga pertunjukanmu untuk menikmati keuntungannya!
         </p>
-        <button className="btn btn-primary">Gabung Sekarang</button>
+        
+        <Link to={`/partner`}>
+            <button className="btn btn-primary">Gabung Sekarang</button>
+        </Link>
     </>
     );
 };

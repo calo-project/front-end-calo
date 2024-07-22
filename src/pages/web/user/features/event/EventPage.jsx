@@ -3,7 +3,6 @@ import SparklesText from "../../../../../components/magicui/sparkles-text";
 import AnimatedGridPattern from "../../../../../components/magicui/animated-grid-pattern";
 import { cn } from "../../../../../../lib/utils";
 import Card from "../../../../../../src/components/Event"
-
 export default function InternalPage() {
   return (
     <>
@@ -20,6 +19,9 @@ export default function InternalPage() {
           )}
         />
       </div> */}
+
+
+
 
       <div className="mb-6">
         <img className="w-screen" src="../../../../../../src/assets/background/BG-event.svg" alt="" />
@@ -41,6 +43,9 @@ export default function InternalPage() {
       </div>
 
       <Card/>
+
+
+
     </>
   );
 }
